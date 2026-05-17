@@ -26,7 +26,8 @@
         "sandermuller/boost-core": "^1.0@dev"
     },
     "require-dev": {
-        "laravel/pint": "^1.29"
+        "laravel/pint": "^1.29",
+        "pestphp/pest": "^4.0"
     },
     "extra": {
         "branch-alias": {
@@ -37,16 +38,24 @@
             "guidelines": "resources/boost/guidelines"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "SanderMuller\\ProjectBoost\\Tests\\": "tests/"
+        }
+    },
     "scripts": {
+        "test": "vendor/bin/pest",
         "fmt": "vendor/bin/pint",
         "fmt:check": "vendor/bin/pint --test",
         "ci": [
-            "@fmt:check"
+            "@fmt:check",
+            "@test"
         ]
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
+            "pestphp/pest-plugin": true,
             "sandermuller/boost-core": true
         }
     },
