@@ -25,5 +25,5 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
 
-      - name: Format check
-        run: composer fmt:check
+      - name: Run CI
+        run: composer ci
