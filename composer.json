@@ -22,7 +22,7 @@
         }
     ],
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "sandermuller/boost-core": "^1.0@dev"
     },
     "require-dev": {
@@ -59,13 +59,6 @@
             "sandermuller/boost-core": true
         }
     },
-    "minimum-stability": "stable",
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../boost-core",
-            "options": { "symlink": true }
-        }
-    ]
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
