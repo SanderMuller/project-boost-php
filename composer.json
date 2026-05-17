@@ -29,6 +29,9 @@
         "laravel/pint": "^1.29"
     },
     "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        },
         "boost": {
             "skills": "resources/boost/skills",
             "guidelines": "resources/boost/guidelines"
