@@ -15,15 +15,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          path: project-boost
-
-      - name: Checkout boost-core sibling
-        uses: actions/checkout@v4
-        with:
-          repository: SanderMuller/boost-core
-          path: boost-core
-          ref: main
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -31,17 +22,8 @@ jobs:
           php-version: ${{ matrix.php }}
           coverage: none
 
-      - name: Wire sibling checkout as path repository
-        working-directory: project-boost
-        run: |
-          composer config repositories.boost-core '{"type":"path","url":"../boost-core","options":{"versions":{"sandermuller/boost-core":"1.0.x-dev"}}}'
-          composer config minimum-stability dev
-          composer config prefer-stable true
-
       - name: Install dependencies
-        working-directory: project-boost
         run: composer install --prefer-dist --no-progress
 
       - name: Run CI
-        working-directory: project-boost
         run: composer ci
