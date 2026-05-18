@@ -23,7 +23,7 @@
     ],
     "require": {
         "php": "^8.3",
-        "sandermuller/boost-core": "^0.3.0"
+        "sandermuller/boost-core": "^0.3.1"
     },
     "require-dev": {
         "laravel/pint": "^1.29",
@@ -47,10 +47,10 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "if [ \"$COMPOSER_DEV_MODE\" = \"1\" ]; then vendor/bin/boost sync 2>/dev/null || true; fi"
+            "SanderMuller\\BoostCore\\Scripts\\BoostAutoSync::run"
         ],
         "post-update-cmd": [
-            "@post-install-cmd"
+            "SanderMuller\\BoostCore\\Scripts\\BoostAutoSync::run"
         ],
         "format": "vendor/bin/pint",
         "format-check": "vendor/bin/pint --test",
