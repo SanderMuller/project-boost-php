@@ -21,7 +21,7 @@ Set `minimum-stability` to `dev` in your `composer.json` (or use the `@dev` suff
 composer boost:init      # generate boost.php starter (from boost-core)
 composer boost:install   # interactive picker: agents + vendor allowlist
                          # project-boost is pre-checked (first-party)
-composer boost:sync      # fan out skills to selected agents
+vendor/bin/boost sync      # fan out skills to selected agents
 ```
 
 After `boost:install`, the five shipped skills land in your selected agent directories (`.claude/skills/`, `.cursor/skills/`, etc.) and you can edit `.ai/skills/` to override any of them in your own project.
