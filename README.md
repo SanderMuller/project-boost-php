@@ -1,7 +1,7 @@
 # project-boost
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sandermuller/project-boost.svg?style=flat-square)](https://packagist.org/packages/sandermuller/project-boost)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/sandermuller/project-boost/ci.yml?branch=main&label=tests&style=flat-square)](https://github.com/sandermuller/project-boost/actions/workflows/ci.yml)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/sandermuller/project-boost/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/sandermuller/project-boost/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/sandermuller/project-boost.svg?style=flat-square)](https://packagist.org/packages/sandermuller/project-boost)
 [![License](https://img.shields.io/packagist/l/sandermuller/project-boost.svg?style=flat-square)](LICENSE)
 
