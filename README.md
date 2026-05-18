@@ -26,6 +26,8 @@ composer boost:sync      # fan out skills to selected agents
 
 After `boost:install`, the five shipped skills land in your selected agent directories (`.claude/skills/`, `.cursor/skills/`, etc.) and you can edit `.ai/skills/` to override any of them in your own project.
 
+Generated agent dirs are added to `.gitignore` automatically and regenerated on every `composer install` — edit `.ai/` only. Set `BOOST_SKIP_AUTOSYNC=1` to disable the auto-regen.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
