@@ -14,7 +14,7 @@ use SanderMuller\BoostCore\Skills\FrontmatterParser;
  */
 function shippedSkills(): array
 {
-    $dir = __DIR__.'/../../resources/boost/skills';
+    $dir = __DIR__ . '/../../resources/boost/skills';
     $entries = scandir($dir);
     if ($entries === false) {
         return [];
@@ -35,11 +35,11 @@ it('ships at least one skill', function (): void {
 });
 
 it('every shipped skill has parseable frontmatter with required fields', function (): void {
-    $parser = new FrontmatterParser;
-    $dir = __DIR__.'/../../resources/boost/skills';
+    $parser = new FrontmatterParser();
+    $dir = __DIR__ . '/../../resources/boost/skills';
 
     foreach (shippedSkills() as $filename) {
-        $contents = (string) file_get_contents($dir.'/'.$filename);
+        $contents = (string) file_get_contents($dir . '/' . $filename);
         $parsed = $parser->parse($contents);
         $expectedName = substr($filename, 0, -3); // strip .md
 

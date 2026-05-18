@@ -27,7 +27,11 @@
     },
     "require-dev": {
         "laravel/pint": "^1.29",
-        "pestphp/pest": "^4.0"
+        "orchestra/testbench": "^11.1",
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-arch": "^4.0",
+        "sandermuller/package-boost": "^0.15.1",
+        "stolt/lean-package-validator": "^5.9"
     },
     "extra": {
         "branch-alias": {
@@ -44,12 +48,23 @@
         }
     },
     "scripts": {
+        "format": "vendor/bin/pint",
+        "format-check": "vendor/bin/pint --test",
         "test": "vendor/bin/pest",
-        "fmt": "vendor/bin/pint",
-        "fmt:check": "vendor/bin/pint --test",
-        "ci": [
-            "@fmt:check",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "sync-ai": "vendor/bin/testbench package-boost:sync",
+        "validate-gitattributes": "vendor/bin/lean-package-validator validate",
+        "qa": [
+            "@format",
+            "@validate-gitattributes",
             "@test"
+        ],
+        "ci": [
+            "@validate-gitattributes",
+            "@test"
+        ],
+        "post-install-cmd": [
+            "if [ \"$COMPOSER_DEV_MODE\" = \"1\" ]; then vendor/bin/testbench package-boost:sync || true; fi"
         ]
     },
     "config": {
