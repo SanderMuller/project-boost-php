@@ -34,7 +34,7 @@ jobs:
       - name: Wire sibling checkout as path repository
         working-directory: project-boost
         run: |
-          composer config repositories.boost-core path ../boost-core
+          composer config repositories.boost-core '{"type":"path","url":"../boost-core","options":{"versions":{"sandermuller/boost-core":"1.0.x-dev"}}}'
           composer config minimum-stability dev
           composer config prefer-stable true
 
