@@ -3,7 +3,6 @@
 .github/ export-ignore
 .gitignore export-ignore
 .lpv export-ignore
-.mcp.json export-ignore
 .ai/ export-ignore
 .claude/ export-ignore
 .cache/ export-ignore
