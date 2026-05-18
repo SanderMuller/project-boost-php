@@ -56,7 +56,6 @@
         "format-check": "vendor/bin/pint --test",
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
-        "sync-ai": "vendor/bin/boost sync",
         "validate-gitattributes": "vendor/bin/lean-package-validator validate",
         "qa": [
             "@format",
