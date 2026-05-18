@@ -46,6 +46,12 @@
         }
     },
     "scripts": {
+        "post-install-cmd": [
+            "if [ \"$COMPOSER_DEV_MODE\" = \"1\" ]; then vendor/bin/boost sync 2>/dev/null || true; fi"
+        ],
+        "post-update-cmd": [
+            "@post-install-cmd"
+        ],
         "format": "vendor/bin/pint",
         "format-check": "vendor/bin/pint --test",
         "test": "vendor/bin/pest",

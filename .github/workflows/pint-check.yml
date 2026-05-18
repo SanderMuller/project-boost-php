@@ -1,6 +1,12 @@
 name: pint-check
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '**.php'
+      - 'pint.json'
+      - '.github/workflows/pint-check.yml'
   pull_request:
     paths:
       - '**.php'
