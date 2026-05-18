@@ -1,36 +1,25 @@
 # project-boost
 
-> AI agent skills for PHP application developers (any framework or none).
+> AI agent skills for PHP application developers (any framework or none). Pure skill bundle — five opinionated skills covering DDD layering, dependency injection, repository pattern, domain modeling, and legacy-coexistence in PHP 7.x→8.x codebases. No PHP code, no commands of its own; depends on [`sandermuller/boost-core`](https://github.com/sandermuller/boost-core) for the sync mechanism.
 
-Pure skill bundle — no code, no commands. Depends on [`sandermuller/boost-core`](https://github.com/sandermuller/boost-core) for the sync mechanism.
-
-## What ships
-
-**5 skills targeting PHP application authors:**
-
-- `ddd-layering` — Domain/Application/Infrastructure/Presentation responsibilities
-- `dependency-injection` — Constructor injection, container vs `new`
-- `repository-pattern` — Doctrine-flavored and ORM-agnostic shapes
-- `domain-modeling` — Entities vs value objects vs aggregates
-- `legacy-coexistence` — Mixing modern PHP 8.x code into a 7.x baseline
-
-Each is intentionally brief (~100-300 lines) — "show the shape, iterate
-post-launch" per the architecture plan.
-
-## Status
-
-**Under construction.** boost-core is not yet on Packagist. This package currently resolves it via a path repository.
-
-## Installation
-
-Coming soon:
+## Install
 
 ```bash
-composer require --dev sandermuller/project-boost
-composer boost:init
-composer boost:install   # picker pre-checks first-party packages
-composer boost:sync
+composer require --dev "sandermuller/project-boost:^1.0@dev"
 ```
+
+Set `minimum-stability` to `dev` in your `composer.json` (or use the `@dev` suffix on the constraint as above) — `boost-core` only ships `dev-main` on Packagist for now, no tagged releases yet.
+
+## Usage
+
+```bash
+composer boost:init      # generate boost.php starter (from boost-core)
+composer boost:install   # interactive picker: agents + vendor allowlist
+                         # project-boost is pre-checked (first-party)
+composer boost:sync      # fan out skills to selected agents
+```
+
+After `boost:install`, the five shipped skills land in your selected agent directories (`.claude/skills/`, `.cursor/skills/`, etc.) and you can edit `.ai/skills/` to override any of them in your own project.
 
 ## License
 
