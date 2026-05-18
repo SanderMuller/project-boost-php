@@ -34,7 +34,7 @@ Use this skill when:
    ```bash
    gh api graphql -f query='
    {
-     repository(owner: "sandermuller", name: "laravel-fluent-validation") {
+     repository(owner: "<OWNER>", name: "<REPO>") {
        pullRequest(number: <NUMBER>) {
          headRefName
          reviewThreads(first: 100) {

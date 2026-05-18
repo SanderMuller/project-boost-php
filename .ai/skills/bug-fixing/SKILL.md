@@ -54,19 +54,15 @@ Before writing any code:
 3. **Will pass when the bug is fixed**
 
 ```php
-it('handles edge case with empty array input', function () {
+it('handles edge case with empty input', function () {
     // Arrange: Set up the scenario that triggers the bug
-    $rules = RuleSet::from([
-        'items' => FluentRule::array()->required()->each([
-            'name' => FluentRule::string()->required(),
-        ]),
-    ]);
+    $subject = new Subject(input: []);
 
     // Act: Perform the action that fails
-    $result = $rules->toArray();
+    $result = $subject->process();
 
     // Assert: What SHOULD happen (currently fails)
-    expect($result)->toHaveKey('items');
+    expect($result)->toBe('expected outcome');
 });
 ```
 

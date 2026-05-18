@@ -25,17 +25,17 @@ Run the appropriate command:
 
 **For uncommitted changes:**
 ```bash
-codex exec review --full-auto --uncommitted "Review for correctness, security, edge cases, and test coverage gaps. This is a Laravel validation package. Focus on: rule compilation ordering, fast-check correctness, FormRequest lifecycle compatibility, and cross-field wildcard handling. Be concise — only report real issues, not style preferences."
+codex exec review --full-auto --uncommitted "Review for correctness, security, edge cases, and test coverage gaps. Adapt focus areas to the project at hand by reading composer.json and README.md before forming the prompt. Be concise — only report real issues, not style preferences."
 ```
 
 **For the latest commit:**
 ```bash
-codex exec review --full-auto --commit HEAD "Review for correctness, security, edge cases, and test coverage gaps. This is a Laravel validation package. Focus on: rule compilation ordering, fast-check correctness, FormRequest lifecycle compatibility, and cross-field wildcard handling. Be concise — only report real issues, not style preferences."
+codex exec review --full-auto --commit HEAD "Review for correctness, security, edge cases, and test coverage gaps. Adapt focus areas to the project at hand by reading composer.json and README.md before forming the prompt. Be concise — only report real issues, not style preferences."
 ```
 
 **For changes against main:**
 ```bash
-codex exec review --full-auto --base main "Review for correctness, security, edge cases, and test coverage gaps. This is a Laravel validation package. Focus on: rule compilation ordering, fast-check correctness, FormRequest lifecycle compatibility, and cross-field wildcard handling. Be concise — only report real issues, not style preferences."
+codex exec review --full-auto --base main "Review for correctness, security, edge cases, and test coverage gaps. Adapt focus areas to the project at hand by reading composer.json and README.md before forming the prompt. Be concise — only report real issues, not style preferences."
 ```
 
 ## Step 3: Critically evaluate findings
@@ -45,7 +45,7 @@ Codex findings are suggestions, not mandates. For each finding:
 1. **Is it a real bug?** — Verify by reading the code. Don't trust Codex's assessment blindly.
 2. **Is it already tested?** — Check if existing tests cover the scenario.
 3. **Is it a style preference?** — Skip. Don't change working code for style.
-4. **Is it a false positive?** — Codex may misunderstand Laravel internals or the package's architecture. Verify against the actual behavior.
+4. **Is it a false positive?** — Codex may misunderstand framework internals or the project's architecture. Verify against the actual behavior.
 
 ## Step 4: Apply warranted fixes
 
