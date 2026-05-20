@@ -5,13 +5,34 @@ All notable changes to `sandermuller/project-boost` will be documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/sandermuller/project-boost/compare/0.3.1...HEAD)
+## [Unreleased](https://github.com/sandermuller/project-boost/compare/0.4.0...HEAD)
 
 ### Added
 
 - Initial scaffolding. Depends on `sandermuller/boost-core` (path repository).
 - 5 PHP-application-author skills: `ddd-layering`, `dependency-injection`, `repository-pattern`, `domain-modeling`, `legacy-coexistence`.
 - Pure skill bundle — no PHP code, no commands. Discovered by boost-core via `extra.boost.{skills,guidelines}` declarations.
+
+## [0.4.0](https://github.com/sandermuller/project-boost/compare/0.3.1...0.4.0) - 2026-05-20
+
+Tracks the boost-core 0.4 family version stream. No behavior change for project-boost itself — a pure skill bundle with no PHP code.
+
+### Changed
+
+- Bumped the `sandermuller/boost-core` constraint to `^0.4.0`.
+
+### What boost-core 0.4.0 brings (inherited)
+
+boost-core 0.4.0 vendor-namespaces user-scope skill paths to prevent cross-package collisions:
+
+- Path shape: `~/.{agent}/skills/<basename>/` → `~/.{agent}/skills/<vendor>__<package>/`.
+- A one-time auto-migration runs on first sync after upgrade — it renames a legacy directory only when an ownership check confirms the contents trace back to that package's own source tree.
+
+Pre-0.2 collision states (two packages that wrote to the same basename directory) are left for manual cleanup — see boost-core's UPGRADING.md.
+
+No upgrade steps for project-boost consumers. `composer update` picks up boost-core 0.4.0; the path migration is automatic.
+
+**Full Changelog**: https://github.com/SanderMuller/project-boost/compare/0.3.1...0.4.0
 
 ## [0.3.1](https://github.com/sandermuller/project-boost/compare/0.3.0...0.3.1) - 2026-05-18
 
@@ -38,6 +59,7 @@ First tagged release. Aligns project-boost with the boost-core 0.3 family-wide v
 
 ```bash
 composer require --dev sandermuller/project-boost
+
 
 
 ```
