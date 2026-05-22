@@ -34,13 +34,17 @@ it('ships at least one guideline', function (): void {
     expect(shippedGuidelines())->not->toBeEmpty();
 });
 
-it('every shipped guideline has a non-empty body opening with a heading', function (): void {
+it('every shipped guideline is frontmatter-free with a body opening with a heading', function (): void {
     $parser = new FrontmatterParser();
     $dir = __DIR__ . '/../../resources/boost/guidelines';
 
     foreach (shippedGuidelines() as $filename) {
         $contents = (string) file_get_contents($dir . '/' . $filename);
         $parsed = $parser->parse($contents);
+
+        // boost-core derives the guideline name from the filename, so a
+        // shipped guideline must carry no frontmatter block.
+        expect($parsed->frontmatter)->toBe([]);
 
         expect($parsed->body)
             ->toBeString()
