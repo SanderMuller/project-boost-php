@@ -12,7 +12,6 @@
 .junie/                 export-ignore
 .kiro/                  export-ignore
 .mcp.json               export-ignore
-.phpunit.cache          export-ignore
 .windsurfrules          export-ignore
 AGENTS.md               export-ignore
 boost.php               export-ignore
