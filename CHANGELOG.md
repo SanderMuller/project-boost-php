@@ -11,7 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial scaffolding. Depends on `sandermuller/boost-core` (path repository).
 - 5 PHP-application-author skills: `ddd-layering`, `dependency-injection`, `repository-pattern`, `domain-modeling`, `legacy-coexistence`.
-- Pure skill bundle — no PHP code, no commands. Discovered by boost-core via `extra.boost.{skills,guidelines}` declarations.
+- `foundation.md` guideline under `resources/boost/guidelines/` — a framework-agnostic foundation for PHP application developers that replaces Laravel Boost's package-oriented default. Discovered automatically by boost-core via the `extra.boost.guidelines` declaration.
+- No PHP code, no commands. Skills and the guideline are discovered by boost-core via `extra.boost.{skills,guidelines}` declarations.
 
 ## [0.4.0](https://github.com/sandermuller/project-boost/compare/0.3.1...0.4.0) - 2026-05-20
 

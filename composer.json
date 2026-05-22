@@ -23,12 +23,13 @@
     ],
     "require": {
         "php": "^8.3",
-        "sandermuller/boost-core": "^0.4.0"
+        "sandermuller/boost-core": "^0.5.0"
     },
     "require-dev": {
         "laravel/pint": "^1.29",
         "pestphp/pest": "^4.0",
         "pestphp/pest-plugin-arch": "^4.0",
+        "sandermuller/boost-skills": "^1.1",
         "stolt/lean-package-validator": "^5.9"
     },
     "extra": {
@@ -47,10 +48,10 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "SanderMuller\\BoostCore\\Scripts\\BoostAutoSync::run"
+            "SanderMuller\\BoostCore\\Scripts\\BoostAutoSync::runWithSummary"
         ],
         "post-update-cmd": [
-            "SanderMuller\\BoostCore\\Scripts\\BoostAutoSync::run"
+            "SanderMuller\\BoostCore\\Scripts\\BoostAutoSync::runWithSummary"
         ],
         "format": "vendor/bin/pint",
         "format-check": "vendor/bin/pint --test",
