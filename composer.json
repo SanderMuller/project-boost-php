@@ -69,6 +69,10 @@
         "ci": [
             "@validate-gitattributes",
             "@test"
+        ],
+        "qa-check": [
+            "vendor/bin/pint --test",
+            "@validate-gitattributes"
         ]
     },
     "config": {

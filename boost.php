@@ -1,0 +1,36 @@
+<?php
+
+declare(strict_types=1);
+
+use SanderMuller\BoostCore\Config\BoostConfig;
+use SanderMuller\BoostCore\Enums\Agent;
+use SanderMuller\BoostCore\Enums\Tag;
+
+/**
+ * boost-core configuration — which AI agents `composer boost:sync` writes to,
+ * which dependency vendors' shipped skills are synced, and which skill tags
+ * are active.
+ *
+ * `withAllowedVendors()` is an explicit allowlist: a dependency's skills sync
+ * ONLY if its package name is listed here. `withTags()` filters
+ * `sandermuller/boost-skills` — universal skills always sync; each tag adds
+ * its capability-specific set (e.g. `Tag::Php` adds backend-quality /
+ * pre-release, `Tag::Github` adds pr-review-feedback). Re-run
+ * `composer boost:install` to change agents/vendors/tags interactively, or
+ * hand-edit this file; then run `composer boost:sync`.
+ *
+ * Docs: https://github.com/sandermuller/boost-core
+ */
+return BoostConfig::configure()
+    ->withAgents([
+        Agent::CLAUDE_CODE,
+        Agent::COPILOT,
+        Agent::CODEX,
+    ])
+    ->withAllowedVendors([
+        'sandermuller/boost-skills',
+        'sandermuller/project-boost',
+        'stolt/lean-package-validator',
+    ])
+    ->withTags(Tag::Php, Tag::Github)
+    ->withDisabledEmitters([]);

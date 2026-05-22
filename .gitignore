@@ -9,9 +9,7 @@ composer.lock
 *.swp
 .DS_Store
 
-# boost-core: dev-time outputs (boost.php from `boost:install`,
-# agent dirs not covered by the managed block below).
-/boost.php
+# boost-core: agent dirs not covered by the managed block below.
 /.agents/
 /.claude/
 /.cursor/
