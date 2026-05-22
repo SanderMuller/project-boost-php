@@ -5,6 +5,15 @@ All notable changes to `sandermuller/project-boost` will be documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0](https://github.com/sandermuller/project-boost/compare/0.5.0...0.6.0) - 2026-05-22
+
+### Changed
+
+- Bumped the `sandermuller/boost-core` constraint to `^0.6.0`.
+- `post-install-cmd` / `post-update-cmd` now run `BoostAutoSync::run` instead of `::runWithSummary`. boost-core's `run()` prints the one-line sync summary (`[OK] Sync done. wrote=X, unchanged=Y.`) only when the sync actually wrote files, and stays silent on a no-op install. 0.5.0 printed that line on every `composer install` / `composer update`; 0.6.0 trims it to installs that changed something. `composer sync-ai` keeps `runWithSummary` — a user-invoked sync always reports.
+
+**Full Changelog**: https://github.com/SanderMuller/project-boost/compare/0.5.0...0.6.0
+
 ## [0.5.0](https://github.com/sandermuller/project-boost/compare/0.4.0...0.5.0) - 2026-05-22
 
 ### Added
@@ -64,6 +73,7 @@ First tagged release. Aligns project-boost with the boost-core 0.3 family-wide v
 
 ```bash
 composer require --dev sandermuller/project-boost
+
 
 
 
