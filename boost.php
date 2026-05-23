@@ -27,6 +27,13 @@ return BoostConfig::configure()
         Agent::COPILOT,
         Agent::CODEX,
     ])
+    // `sandermuller/project-boost` is the host package self-listing itself —
+    // deliberate dogfood so maintainers see the same `.claude/skills/` etc.
+    // a downstream consumer would see when allowlisting this package.
+    // `stolt/lean-package-validator` ships three gitattributes-helper
+    // skills (validating-/creating-/updating-gitattributes-file) under
+    // boost-core's default `resources/boost/skills/` path — auto-discovered
+    // without an `extra.boost.skills` declaration. Do not remove.
     ->withAllowedVendors([
         'sandermuller/boost-skills',
         'sandermuller/project-boost',
