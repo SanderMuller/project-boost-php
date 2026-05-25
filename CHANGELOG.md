@@ -5,6 +5,16 @@ All notable changes to `sandermuller/project-boost` will be documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0](https://github.com/sandermuller/project-boost/compare/0.6.0...0.7.0) - 2026-05-25
+
+Tracks the boost-core 0.7 family version stream. No behavior change for project-boost itself — a pure skill bundle with no PHP code. boost-core 0.7.0 is additive over 0.6.x (no migration required); project-boost does not yet consume any of its new surfaces (`withRemoteSkills`, `SkillRenderer`, `SyncEngine` injection params, `boost where`).
+
+### Changed
+
+- Bumped the `sandermuller/boost-core` constraint to `^0.7.0`.
+
+**Full Changelog**: https://github.com/SanderMuller/project-boost/compare/0.6.0...0.7.0
+
 ## [0.6.0](https://github.com/sandermuller/project-boost/compare/0.5.0...0.6.0) - 2026-05-22
 
 ### Changed
