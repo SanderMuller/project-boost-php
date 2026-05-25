@@ -39,5 +39,5 @@ return BoostConfig::configure()
         'sandermuller/project-boost',
         'stolt/lean-package-validator',
     ])
-    ->withTags(Tag::Php, Tag::Github)
+    ->withTags(Tag::Php, Tag::Github, 'release-automation')
     ->withDisabledEmitters([]);
