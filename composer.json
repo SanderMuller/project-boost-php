@@ -30,7 +30,7 @@
         "pestphp/pest": "^4.0",
         "pestphp/pest-plugin-arch": "^4.0",
         "sandermuller/boost-skills": "^1.1",
-        "sandermuller/package-boost-php": "^0.8",
+        "sandermuller/package-boost-php": "^0.9",
         "stolt/lean-package-validator": "^5.9"
     },
     "autoload-dev": {
@@ -70,8 +70,7 @@
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true,
-            "sandermuller/package-boost-php": true
+            "pestphp/pest-plugin": true
         }
     },
     "minimum-stability": "stable",
