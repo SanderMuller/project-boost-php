@@ -30,16 +30,8 @@
         "pestphp/pest": "^4.0",
         "pestphp/pest-plugin-arch": "^4.0",
         "sandermuller/boost-skills": "^1.1",
+        "sandermuller/package-boost-php": "^0.8",
         "stolt/lean-package-validator": "^5.9"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-main": "0.3.x-dev"
-        },
-        "boost": {
-            "skills": "resources/boost/skills",
-            "guidelines": "resources/boost/guidelines"
-        }
     },
     "autoload-dev": {
         "psr-4": {
@@ -79,8 +71,9 @@
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true,
-            "sandermuller/boost-core": true
+            "sandermuller/package-boost-php": true
         }
     },
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
