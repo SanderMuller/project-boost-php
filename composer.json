@@ -23,14 +23,14 @@
     ],
     "require": {
         "php": "^8.3",
-        "sandermuller/boost-core": "^0.7.0"
+        "sandermuller/boost-core": "^0.8"
     },
     "require-dev": {
         "laravel/pint": "^1.29",
         "pestphp/pest": "^4.0",
         "pestphp/pest-plugin-arch": "^4.0",
-        "sandermuller/boost-skills": "^1.1",
-        "sandermuller/package-boost-php": "^0.9",
+        "sandermuller/boost-skills": "^1.6",
+        "sandermuller/package-boost-php": "^0.10",
         "stolt/lean-package-validator": "^5.9"
     },
     "autoload-dev": {
