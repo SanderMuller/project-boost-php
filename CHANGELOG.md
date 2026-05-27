@@ -5,6 +5,40 @@ All notable changes to `sandermuller/project-boost` will be documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.0](https://github.com/sandermuller/project-boost/compare/0.7.0...0.8.0) - 2026-05-27
+
+### Changed
+
+- Bumped the `sandermuller/boost-core` constraint to `^0.8`. Consumers with a hard pin on boost-core 0.7.x elsewhere in their `composer.json` will need to widen alongside this bump.
+- README rewritten end-to-end against the family-wide README strategy. The "any framework, or none" angle leads (the direct response to `laravel/boost`'s Laravel-only scope), the five shipped skills are framed honestly as DDD- and clean-architecture-leaning opinions rather than a neutral catalog, and the routing table cross-links Laravel-app users sideways to `sandermuller/project-boost-laravel`. Side-by-side comparison with `laravel/boost` clarifies the scope, skill set, and MCP/docs delegation. Sources of skills (host `.ai/skills/`, Composer-installed catalogs, `withRemoteSkills()`) are surfaced as a stacked menu with their per-source filter semantics described accurately against the engine source.
+
+### What boost-core 0.8 brings (inherited)
+
+boost-core 0.8 is additive over 0.7.x — no migration required.
+
+- **`boost where --diff=<skill>`** — unified diff between a host-shadowed skill and the vendor's upstream copy, with a "no diff" hint when the override is byte-identical (signal to remove the redundant local override).
+- **`boost doctor --check-versions`** — opt-in Packagist comparison that catches stale path-repo installs silently shadowing newer published versions.
+- **`.ai/commands/` argument transpilation** — `$ARGUMENTS`, `$1`/`$2`/…, `$name` placeholder rewriting per-agent across seven emit targets. Author once, transpile on sync.
+- **Conventions schema discovery** — vendor packages can ship `resources/boost/conventions-schema.json` to declare reusable rule shapes; consumers pick them up via the existing allowlist.
+
+project-boost itself does not yet consume any of these surfaces directly.
+
+### Dev-only dependency moves (not consumer-visible)
+
+For maintainers of this repository, two dev-dep bumps landed alongside the constraint change:
+
+- `sandermuller/package-boost-php` ^0.9 → ^0.10. The release-flow content skills (`readme`, `release-notes`, `upgrading`) moved out of package-boost-php and into `sandermuller/boost-skills` under the `release-automation` opt-in tag.
+- `sandermuller/boost-skills` ^1.1 → ^1.6 (the move target above).
+- `boost.php` lost a vestigial `->withDisabledEmitters([])` no-op from the original `boost install` scaffold template. Functionally inert; cleanup only.
+
+None of the above changes what downstream consumers of project-boost see in their generated agent directories.
+
+### Upgrade
+
+`composer update sandermuller/project-boost` widens the boost-core constraint and pulls in 0.8.x. If your project's own `composer.json` hard-pins `sandermuller/boost-core: ^0.7.0`, widen to `^0.8` (or drop the explicit constraint and let project-boost's transitive bound own it).
+
+**Full Changelog**: https://github.com/SanderMuller/project-boost/compare/0.7.0...0.8.0
+
 ## [0.7.0](https://github.com/sandermuller/project-boost/compare/0.6.0...0.7.0) - 2026-05-25
 
 Tracks the boost-core 0.7 family version stream. No behavior change for project-boost itself — a pure skill bundle with no PHP code. boost-core 0.7.0 is additive over 0.6.x (no migration required); project-boost does not yet consume any of its new surfaces (`withRemoteSkills`, `SkillRenderer`, `SyncEngine` injection params, `boost where`).
@@ -83,6 +117,7 @@ First tagged release. Aligns project-boost with the boost-core 0.3 family-wide v
 
 ```bash
 composer require --dev sandermuller/project-boost
+
 
 
 
