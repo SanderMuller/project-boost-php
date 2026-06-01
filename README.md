@@ -8,6 +8,8 @@
 
 AI agent skills for PHP application developers — **any framework, or none**. Five opinionated skills (DDD layering, dependency injection, repository pattern, domain modeling, legacy coexistence) plus a framework-agnostic `foundation` guideline. Rides the [`sandermuller/boost-core`](https://github.com/sandermuller/boost-core) sync engine; ships no code of its own.
 
+![overview image](overview.png)
+
 > For PHP application developers on any framework or none. [`laravel/boost`](https://github.com/laravel/boost) is Laravel-only; `project-boost` covers Symfony, plain-PHP, and framework-agnostic apps. Building a Laravel app? Install [`sandermuller/project-boost-laravel`](https://github.com/sandermuller/project-boost-laravel) instead — it layers `laravel/boost` MCP coexistence on the same nine-agent fanout.
 
 ## Which package fits your role?
