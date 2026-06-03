@@ -7,17 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.9.0](https://github.com/sandermuller/project-boost/compare/0.8.0...0.9.0) - 2026-06-03
 
-<!-- verified-sha: 9ac69f49c46ca07ee20b5890ae6bcc49f8e19585 -->
-<!-- ci-evidence: pint-check + run-tests both green on 3e30bfd (the boost-family bump). The two commits on top — 5575166 (skill-source markdown prune) and 9ac69f4 (.lpv glob) — touch no PHP/composer/pint surface, so the path-filtered workflows correctly skip them; the tagged tree at 9ac69f4 is CI-identical to 3e30bfd on every tested file. Local on HEAD: pint clean, pest 4 passed / 36 assertions, lean-package-validator valid, boost sync no-drift. -->
-### 0.9.0
-
-Catches project-boost up to the current boost-core 0.22 family and moves the repo's own config to the `.config/` layout. Still a pure skill bundle — no PHP, no behavior change to the five shipped skills.
-
-#### Changed
+### Changed
 
 - Bumped the `sandermuller/boost-core` constraint `^0.8` → `^0.22`. This is the one consumer-visible change: a project that hard-pins `sandermuller/boost-core` elsewhere in its `composer.json` at 0.8.x–0.21.x must widen to `^0.22` (or drop the explicit pin and let project-boost's transitive bound own it). The five shipped skills and the `foundation` guideline are unchanged.
 
-#### What boost-core 0.9 → 0.22 brings (inherited)
+### What boost-core 0.9 → 0.22 brings (inherited)
 
 The jump spans several boost-core minors. For a consumer that authors a `boost.php` and syncs (no plugin contracts implemented), all of it is additive bar the one config-author signature change noted last:
 
@@ -27,7 +21,7 @@ The jump spans several boost-core minors. For a consumer that authors a `boost.p
 - **`@api` / `@internal` surface declaration (0.22)** — the `boost.php` authoring API and the CLI are the stable surface; engine internals are now explicitly marked.
 - **`withTags()` takes an array (0.20)** — config authors pass `->withTags([Tag::Php, …])` instead of variadic arguments. The only non-additive step, and it only bites a hand-edited `boost.php`.
 
-#### Maintainer-only changes (not consumer-visible)
+### Maintainer-only changes (not consumer-visible)
 
 None of these change what downstream consumers see in their generated agent directories.
 
@@ -37,7 +31,7 @@ None of these change what downstream consumers see in their generated agent dire
 - Dev-deps: `sandermuller/boost-skills` ^1.6 → ^2.0 (its conventions-inlining major) and `sandermuller/package-boost-php` ^0.10 → ^0.18.
 - `.gitattributes` and `.lpv` export-ignore the `.config/` directory so it stays out of the published archive.
 
-#### Upgrade
+### Upgrade
 
 `composer update sandermuller/project-boost` widens the boost-core constraint and pulls in 0.22.x. If your project's own `composer.json` hard-pins `sandermuller/boost-core` below `^0.22`, widen it (or drop the explicit constraint and let project-boost's transitive bound own it).
 
