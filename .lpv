@@ -6,7 +6,7 @@
 .ai/ export-ignore
 .claude/ export-ignore
 .cache/ export-ignore
-boost.php export-ignore
+.config/ export-ignore
 CHANGELOG.md export-ignore
 composer.lock export-ignore
 phpunit.xml export-ignore
