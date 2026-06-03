@@ -3,6 +3,7 @@
 .ai/                    export-ignore
 .cache/                 export-ignore
 .claude/                export-ignore
+.config/                export-ignore
 .cursor/                export-ignore
 .cursorrules            export-ignore
 .editorconfig           export-ignore
@@ -14,7 +15,6 @@
 .mcp.json               export-ignore
 .windsurfrules          export-ignore
 AGENTS.md               export-ignore
-boost.php               export-ignore
 CHANGELOG.md            export-ignore
 CLAUDE.md               export-ignore
 composer.lock           export-ignore
