@@ -17,11 +17,31 @@ jobs:
         with:
           ref: ${{ github.event.release.target_commitish }}
 
+      # Strip internal markers before they reach the public CHANGELOG: the
+      # release body carries the pre-release skill's `<!-- verified-sha -->` /
+      # `<!-- ci-evidence -->` HTML comments and a redundant leading `# <version>`
+      # H1. GitHub hides HTML comments when rendering, but the changelog action
+      # prepends the body verbatim, so they leak into CHANGELOG.md. Body is read
+      # via env (not inline interpolation) to avoid shell-injection.
+      - name: Sanitize release notes
+        id: notes
+        env:
+          BODY: ${{ github.event.release.body }}
+        run: |
+          cleaned="$(printf '%s' "$BODY" \
+            | perl -0777 -pe 's/<!--.*?-->//gs' \
+            | perl -0777 -pe 's/\A\s*#\s+\S[^\n]*\n+//')"
+          {
+            echo "body<<RELEASE_NOTES_EOF"
+            printf '%s\n' "$cleaned"
+            echo "RELEASE_NOTES_EOF"
+          } >> "$GITHUB_OUTPUT"
+
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@v1
         with:
           latest-version: ${{ github.event.release.tag_name }}
-          release-notes: ${{ github.event.release.body }}
+          release-notes: ${{ steps.notes.outputs.body }}
 
       - name: Commit updated CHANGELOG
         uses: stefanzweifel/git-auto-commit-action@v7

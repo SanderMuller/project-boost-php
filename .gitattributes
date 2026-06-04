@@ -20,6 +20,7 @@ CLAUDE.md               export-ignore
 composer.lock           export-ignore
 GEMINI.md               export-ignore
 phpstan-baseline.neon   export-ignore
+UPGRADING.md            export-ignore
 # <<< package-boost (managed) <<<
 .lpv             export-ignore
 phpunit.xml      export-ignore

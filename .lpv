@@ -8,6 +8,7 @@
 .cache/ export-ignore
 .config/ export-ignore
 CHANGELOG.md export-ignore
+UPGRADING.md export-ignore
 composer.lock export-ignore
 phpunit.xml export-ignore
 pint.json export-ignore
