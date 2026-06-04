@@ -35,6 +35,8 @@ Shipped from `resources/boost/guidelines/` as flat `<name>.md` files:
 
 Anything not listed above. In particular: the internal organisation of skill markdown, code-block tags, examples — these may be reworded freely.
 
+Family convention (shared with `project-boost-laravel` / `package-boost-laravel`): a shipped `SkillRenderer` / `FileEmitter` **implementation is `@internal`** — the `@api` seam is boost-core's `SkillRenderer` / `FileEmitter` *contract* (whose signature we don't own; marking an impl `@api` would over-promise). project-boost ships neither, so this is informational here — recorded for one consistent rule across the family's `PUBLIC_API.md`s.
+
 ## Removed APIs
 
 <!-- Track removed APIs here so consumers know what was removed when. Example:
