@@ -8,24 +8,28 @@ This package follows [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.
 
 ## Stable surface
 
-`project-boost` ships no PHP code. It is a skill bundle consumed by `sandermuller/boost-core` via the `extra.boost` keys in `composer.json`:
+`project-boost` ships **no PHP code** — no classes, no service provider, no CLI, no config keys of its own, no `@api`/`@internal` class surface. It is a pure skill bundle that `sandermuller/boost-core` discovers at its **default convention paths** (project-boost declares no `extra.boost` override in `composer.json`):
 
-- `extra.boost.skills` — path to the skills root (currently `resources/boost/skills`).
-- `extra.boost.guidelines` — path to the guidelines root (currently `resources/boost/guidelines`).
+- `resources/boost/skills/` — skills root (boost-core's `DEFAULT_SKILLS_PATH`).
+- `resources/boost/guidelines/` — guidelines root.
 
-These two keys plus the on-disk layout under those paths are the public surface. Skill file names, skill IDs, and the SKILL.md frontmatter contract are covered by semver.
+Those default paths, the on-disk layout under them, the set of shipped skills/guidelines, and the per-file frontmatter contract are the public surface. Renaming or removing a shipped skill or guideline is a BREAKING change. (boost-core also supports overriding the paths via `extra.boost.skills` / `extra.boost.guidelines`; project-boost relies on the defaults, so the default paths themselves are part of its contract.)
 
 ### Skills
 
-Skills shipped from `resources/boost/skills/`. Each top-level directory is one skill; renaming or removing a skill is a BREAKING change.
+Shipped from `resources/boost/skills/`. Each is a flat `<name>.md` file (filename matches the `name:` frontmatter) carrying `name` + `description` frontmatter:
 
-<!-- Enumerate skill IDs once they stabilise. -->
+- `ddd-layering`
+- `dependency-injection`
+- `domain-modeling`
+- `legacy-coexistence`
+- `repository-pattern`
 
 ### Guidelines
 
-Guidelines shipped from `resources/boost/guidelines/`.
+Shipped from `resources/boost/guidelines/` as flat `<name>.md` files:
 
-<!-- Enumerate guideline files once they stabilise. -->
+- `foundation`
 
 ## Internal (not covered by semver)
 
