@@ -5,6 +5,31 @@ All notable changes to `sandermuller/project-boost` will be documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.10.0](https://github.com/sandermuller/project-boost/compare/0.9.0...0.10.0) - 2026-06-04
+
+Adds boost-core 0.23 support and lands the groundwork for a 1.0 in lockstep with the boost family. Still a pure skill bundle — no PHP, no change to what consumers receive.
+
+### Changed
+
+- Widened the `sandermuller/boost-core` constraint `^0.22` → `^0.22 || ^0.23` — project-boost now supports boost-core 0.23 (an additive pre-1.0 minor). Consumers on boost-core 0.22 are unaffected; those on 0.23 can now install. If you hard-pin boost-core below 0.23 elsewhere, no change is required.
+- Converted the five shipped skills to boost-core's canonical `<name>/SKILL.md` source shape (was flat `<name>.md`), matching the wider boost family. Source-layout change only — boost-core emits the same per-agent skill files, so consumers receive exactly the same skills.
+
+### Added
+
+- **`UPGRADING.md`** — a lean upgrade guide centered on the one cross-package migration a skill bundle has: the transitive boost-core constraint consumers inherit.
+- **`PUBLIC_API.md`** now declares the accurate semver-protected surface ahead of 1.0: the shipped skill set + boost-core's default discovery paths (`resources/boost/{skills,guidelines}/`) + the per-file frontmatter contract. project-boost ships no PHP, so it has no `@api`/`@internal` class surface; the doc records the family convention (a renderer/emitter implementation is `@internal`; the contract is boost-core's `@api`).
+
+### Internal (maintainer-facing, not consumer-visible)
+
+- Dev dependencies: `sandermuller/boost-skills` 2.0.6 → 2.1.0, `sandermuller/package-boost-php` 0.18.1 → 0.19.1.
+- Fixed `update-changelog.yml` to strip internal release-notes markers before prepending, so they no longer land in `CHANGELOG.md`.
+
+### Upgrade
+
+`composer update sandermuller/project-boost` pulls 0.10.0 and admits boost-core 0.23. See `UPGRADING.md` if your project independently pins `sandermuller/boost-core`.
+
+**Full Changelog**: https://github.com/SanderMuller/project-boost/compare/0.9.0...0.10.0
+
 ## [0.9.0](https://github.com/sandermuller/project-boost/compare/0.8.0...0.9.0) - 2026-06-03
 
 ### Changed
@@ -149,6 +174,7 @@ First tagged release. Aligns project-boost with the boost-core 0.3 family-wide v
 
 ```bash
 composer require --dev sandermuller/project-boost
+
 
 
 
