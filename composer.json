@@ -23,7 +23,7 @@
     ],
     "require": {
         "php": "^8.3",
-        "sandermuller/boost-core": "^0.22"
+        "sandermuller/boost-core": "^0.22 || ^0.23"
     },
     "require-dev": {
         "laravel/pint": "^1.29",
