@@ -17,7 +17,7 @@ Those default paths, the on-disk layout under them, the set of shipped skills/gu
 
 ### Skills
 
-Shipped from `resources/boost/skills/`. Each is a flat `<name>.md` file (filename matches the `name:` frontmatter) carrying `name` + `description` frontmatter:
+Shipped from `resources/boost/skills/` as `<name>/SKILL.md` directories (boost-core's canonical source shape, shared with boost-skills and the family). The directory name matches the `name:` frontmatter; each `SKILL.md` carries `name` + `description` frontmatter:
 
 - `ddd-layering`
 - `dependency-injection`
