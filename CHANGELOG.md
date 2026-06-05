@@ -5,6 +5,50 @@ All notable changes to `sandermuller/project-boost` will be documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0](https://github.com/sandermuller/project-boost/compare/0.10.0...1.0.0) - 2026-06-05
+
+The first stable release. The surface is now frozen under SemVer, the package is renamed to fit the family convention, and the shipped skills are trimmed to what holds on any framework.
+
+### Breaking
+
+#### Renamed: `sandermuller/project-boost` → `sandermuller/project-boost-php`
+
+The package now carries the `-php` suffix, matching its siblings (`package-boost-php`, `project-boost-laravel`, `package-boost-laravel`). The old `sandermuller/project-boost` is abandoned on Packagist pointing here; its 0.x tags stay installable.
+
+Update your dependency — and, importantly, any reference in your `boost.php`:
+
+```diff
+- "sandermuller/project-boost": "^0.10"
++ "sandermuller/project-boost-php": "^1.0"
+
+```
+```diff
+  // boost.php
+- ->withAllowedVendors(['sandermuller/project-boost'])
++ ->withAllowedVendors(['sandermuller/project-boost-php'])
+
+```
+boost-core matches on the literal package name, so a stale `boost.php` reference silently stops matching — none of this package's skills would sync, and a stale `withExcludedSkills(['sandermuller/project-boost:<name>'])` entry would let a skill you'd excluded reappear. See `UPGRADING.md`.
+
+#### Removed three skills
+
+`ddd-layering`, `domain-modeling`, and `repository-pattern` are gone. They shipped a DDD / clean-architecture opinion by default that conflicts with the "any framework, or none" remit and misleads ActiveRecord/Eloquent-shaped apps. If you relied on a dropped skill, copy it into your own `.ai/skills/<name>/SKILL.md` (host copies shadow vendor skills), or pin the old package `sandermuller/project-boost:^0.10` whose 0.x tags still carry them.
+
+### Changed
+
+- The `foundation` guideline was rewritten lean and framework-agnostic — a positive "here's how to work in this application" framing instead of the defensive "it's not a package" ceremony, and less context bloat.
+- The `sandermuller/boost-core` constraint widened `^0.22 || ^0.23` → `^1.0`, tracking the family's 1.0 freeze. boost-core 1.0 froze the 0.23.3 surface; both skill-source shapes and the default discovery paths are frozen-accepted, so the engine upgrade is a clean drop-in.
+
+### The 1.0 surface
+
+Two skills — `dependency-injection` and `legacy-coexistence` — plus the `foundation` guideline. `PUBLIC_API.md` records the frozen contract: removing or renaming a shipped skill/guideline, or changing a default discovery path, is now a MAJOR-only breaking change.
+
+### Upgrade
+
+See `UPGRADING.md` for the full migration: the dependency name, `boost.php` references, the dropped skills, and the boost-core constraint.
+
+**Full Changelog**: https://github.com/SanderMuller/project-boost-php/compare/0.10.0...1.0.0
+
 ## [0.10.0](https://github.com/sandermuller/project-boost/compare/0.9.0...0.10.0) - 2026-06-04
 
 Adds boost-core 0.23 support and lands the groundwork for a 1.0 in lockstep with the boost family. Still a pure skill bundle — no PHP, no change to what consumers receive.
@@ -174,6 +218,7 @@ First tagged release. Aligns project-boost with the boost-core 0.3 family-wide v
 
 ```bash
 composer require --dev sandermuller/project-boost
+
 
 
 
