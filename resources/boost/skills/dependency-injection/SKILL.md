@@ -82,8 +82,3 @@ $cmd = new CreateOrder(
 ```
 
 No container, no mocks, no magic.
-
-## See also
-
-- `ddd-layering` for which layer owns the container wiring
-- `repository-pattern` for how repositories get injected

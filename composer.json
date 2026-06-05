@@ -1,11 +1,11 @@
 {
-    "name": "sandermuller/project-boost",
+    "name": "sandermuller/project-boost-php",
     "description": "AI agent skills for PHP application developers. Patterns, conventions, and guidance for non-package projects.",
     "type": "library",
     "license": "MIT",
     "keywords": [
         "sandermuller",
-        "project-boost",
+        "project-boost-php",
         "ai",
         "claude",
         "cursor",
@@ -13,7 +13,7 @@
         "applications",
         "developer-tools"
     ],
-    "homepage": "https://github.com/sandermuller/project-boost",
+    "homepage": "https://github.com/sandermuller/project-boost-php",
     "authors": [
         {
             "name": "Sander Muller",
@@ -35,7 +35,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "SanderMuller\\ProjectBoost\\Tests\\": "tests/"
+            "SanderMuller\\ProjectBoostPhp\\Tests\\": "tests/"
         }
     },
     "scripts": {

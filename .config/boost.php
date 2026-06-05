@@ -29,10 +29,10 @@ return BoostConfig::configure()
     ])
     // `sandermuller/package-boost-php` provides maintainer-facing Composer
     // package-author skills (readme, release-notes, lean-dist, …). It ships a
-    // package-author `foundation` guideline that collides with project-boost's
+    // package-author `foundation` guideline that collides with project-boost-php's
     // app-author `foundation` — for this repo (which IS a Composer package),
-    // the package-author framing wins, so project-boost is intentionally NOT
-    // self-listed here. Downstream consumers still get project-boost's
+    // the package-author framing wins, so project-boost-php is intentionally NOT
+    // self-listed here. Downstream consumers still get project-boost-php's
     // foundation via their own allowlist.
     // `stolt/lean-package-validator` ships three gitattributes-helper
     // skills (validating-/creating-/updating-gitattributes-file) under

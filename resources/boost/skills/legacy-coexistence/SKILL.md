@@ -81,9 +81,3 @@ syntax not yet supported by the legacy floor.
   to ever modernize
 - Modernizing everything at once → big-bang migrations fail. Incremental
   is the only sustainable approach.
-
-## See also
-
-- `ddd-layering` for the modern-code boundary (typically Domain in
-  modern PHP, Infrastructure can mix)
-- `domain-modeling` for value objects that work in mixed-floor codebases
