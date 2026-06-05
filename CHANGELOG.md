@@ -1,11 +1,11 @@
 # Changelog
 
-All notable changes to `sandermuller/project-boost` will be documented here.
+All notable changes to `sandermuller/project-boost-php` will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0](https://github.com/sandermuller/project-boost/compare/0.10.0...1.0.0) - 2026-06-05
+## [1.0.0](https://github.com/sandermuller/project-boost-php/compare/0.10.0...1.0.0) - 2026-06-05
 
 The first stable release. The surface is now frozen under SemVer, the package is renamed to fit the family convention, and the shipped skills are trimmed to what holds on any framework.
 
