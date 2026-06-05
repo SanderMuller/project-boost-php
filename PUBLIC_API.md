@@ -4,7 +4,7 @@ The semver-protected surface of `sandermuller/project-boost`. Anything documente
 
 ## Versioning
 
-This package follows [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html). Pre-`1.0.0` releases may break API in MINOR bumps; we surface those in `CHANGELOG.md`.
+This package follows [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html). As of `1.0.0` the surface below is frozen: removing or renaming a shipped skill/guideline, or changing a default discovery path, is a BREAKING change requiring a MAJOR bump. Additive changes (new skills, new guidelines) ship in MINOR releases. All changes are surfaced in `CHANGELOG.md`.
 
 ## Stable surface
 
