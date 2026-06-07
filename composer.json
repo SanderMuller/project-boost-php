@@ -31,7 +31,7 @@
         "pestphp/pest-plugin-arch": "^4.0",
         "sandermuller/boost-skills": "^2.0",
         "sandermuller/package-boost-php": "^1.0",
-        "stolt/lean-package-validator": "^5.9"
+        "stolt/lean-package-validator": "^5.9 || ^6.0"
     },
     "autoload-dev": {
         "psr-4": {
